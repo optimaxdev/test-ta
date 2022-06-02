@@ -1,6 +1,6 @@
 /* eslint-disable */
-import {isMessageBlacklisted} from '@Utils/logger/blackList';
-import {isUselessMessageEvent} from '@Utils/logger/uselessMessages';
+import { isMessageBlacklisted } from '@Utils/logger/blackList';
+import { isUselessMessageEvent } from '@Utils/logger/uselessMessages';
 import * as log4js from 'log4js';
 
 const isSimpleMessage = (message: string | undefined | null): boolean =>
@@ -24,15 +24,13 @@ const transformMessageToAdorableState = (message: string): string =>
     isSimpleMessage(message) ? message : tryToParseToJson(message);
 
 const formatMessages = (messages: string[]): string[] =>
-    messages.map(transformMessageToAdorableState).map(it => `  ${it}`);
+    messages.map(transformMessageToAdorableState).map((it) => `  ${it}`);
 
 const customStdoutAppender: log4js.AppenderModule = {
     configure: (config, layouts) => {
-        const layout = config.layout
-            ? layouts.layout(config.layout.type, config.layout)
-            : layouts.coloredLayout;
+        const layout = config.layout ? layouts.layout(config.layout.type, config.layout) : layouts.coloredLayout;
 
-        const generator: log4js.AppenderFunction = loggingEvent => {
+        const generator: log4js.AppenderFunction = (loggingEvent) => {
             const messages = loggingEvent.data;
 
             if (isMessageBlacklisted(messages)) return;
@@ -55,8 +53,8 @@ log4js.configure({
                 type: 'pattern',
                 pattern: '[%d] %[[%p] %c%] %x{file}:%l%n%m',
                 tokens: {
-                    file: logEvent => {
-                        const regex = /(__new_specs__\/.*)/gm;
+                    file: (logEvent) => {
+                        const regex = /(__specs__\/.*)/gm;
                         // noinspection TypeScriptUnresolvedVariable
                         const regexResult = regex.exec(logEvent.fileName);
                         // noinspection TypeScriptUnresolvedVariable

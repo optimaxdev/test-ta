@@ -1,7 +1,7 @@
 import './Form.scss';
 
 import { Field } from '../Field/Field';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NewCartItemT } from '../../redux/types/cart';
 
 type FormT = {

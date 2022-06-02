@@ -1,4 +1,5 @@
 import './Modal.scss';
+import React from 'react';
 
 type ModalP = {
   close: () => void;

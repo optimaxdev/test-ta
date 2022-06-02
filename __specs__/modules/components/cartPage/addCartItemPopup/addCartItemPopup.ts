@@ -1,6 +1,6 @@
 import { Component } from '@Core/component';
 
-export type CartItem = {
+export type CartItemData = {
     name: string;
     price: number;
     quantity: number;
@@ -15,8 +15,8 @@ const SELECTORS = {
 };
 
 export class AddCartItemPopup extends Component {
-    public async fill(item: CartItem): Promise<void> {
-        const selectorToProperty = new Map<keyof CartItem, string>([
+    public async fill(item: CartItemData): Promise<void> {
+        const selectorToProperty = new Map<keyof CartItemData, string>([
             ['name', SELECTORS.name],
             ['price', SELECTORS.price],
             ['quantity', SELECTORS.quantity],

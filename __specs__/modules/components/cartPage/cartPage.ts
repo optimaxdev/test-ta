@@ -1,9 +1,12 @@
-import { AddCartItemPopup, CartItem } from '@Components/cartPage/addCartItemPopup/addCartItemPopup';
+import { AddCartItemPopup, CartItemData } from '@Components/cartPage/addCartItemPopup/addCartItemPopup';
+import { CartList } from '@Components/cartPage/cartList/cartList';
 import { Container } from '@Core/container';
 
 const SELECTORS = {
     addCartItemButton: './/button[contains(text(), "Add Cart Item")]',
     addCartItemPopup: './/div[@class="modal" and contains(., "Add New Cart Item")]',
+
+    cartList: './/div[@class="cart__list"]',
 };
 
 export class CartPageContainer extends Container {
@@ -21,11 +24,17 @@ export class CartPageContainer extends Container {
         return addCartItemPopup;
     }
 
-    public async addCartItem(cartItem: CartItem): Promise<void> {
+    public async addCartItem(cartItem: CartItemData): Promise<void> {
         await this.clickAddCartItemButton();
         const addItemPopup = await this.getAddCartItemPopup();
 
         await addItemPopup.fill(cartItem);
         await addItemPopup.clickCreateItem();
+    }
+
+    public async getCartList(): Promise<CartList> {
+        const [cartListElement] = await document.waitForXpath(SELECTORS.cartList);
+        const cartList = new CartList(cartListElement);
+        return cartList;
     }
 }

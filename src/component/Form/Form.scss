@@ -1,4 +1,8 @@
 .new-item-form {
+  &__title {
+    color: var(--text-color);
+  }
+
   &__btns {
     display: flex;
     justify-content: space-between;

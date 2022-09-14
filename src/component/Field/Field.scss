@@ -11,20 +11,27 @@
 
   &__label {
     margin-bottom: 5px;
+    color: var(--input-text-color);
   }
 
   &_error {
     .input {
-      border: 1px solid $critic;
+      border: 1px solid var(--critic);
     }
   }
 }
 
 .error {
   text-align: right;
-  color: $critic;
+  color: var(--critic);
 }
 
 .input {
   padding: 5px;
+  color: var(--input-text-color);
+  background-color: var(--input-background-color);
+
+  &::placeholder {
+    color: var(--input-placeholder-text-color);
+  }
 }

@@ -2,6 +2,7 @@ import './CartItem.scss';
 import React from 'react';
 import { CartItemT } from '../../redux/types/cart';
 import { QuantitySwitcher } from '../QuantitySwitcher/QuantitySwitcher';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 type CartItemP = {
   item: CartItemT;
@@ -24,10 +25,10 @@ export const CartItem: React.FC<CartItemP> = ({
           <CartItemPrice price={item.price} quantity={item.quantity} />
         </div>
         <div className="cart-item__actions">
-          <button
+          <DeleteForeverIcon
+            fontSize="large"
             data-testid="delete-btn"
-            type={'button'}
-            className="cart-item__delete-btn btn btn_small"
+            className="cart-item__delete-btn btn"
             onClick={deleteItem}
           />
           <QuantitySwitcher

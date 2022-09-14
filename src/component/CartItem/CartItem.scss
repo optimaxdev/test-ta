@@ -2,7 +2,7 @@
   padding: 40px;
   margin-bottom: 20px;
   position: relative;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--horisontal-rule-color);
 
   &__body {
     display: flex;
@@ -10,7 +10,16 @@
     height: 100px;
   }
 
+  &__name {
+    color: var(--text-color);
+  }
+
+  &__fullprice {
+    color: var(--text-color);
+  }
+
   &__price-for-one {
+    color: var(--text-color);
     font-size: 12px;
     font-style: italic;
   }
@@ -23,10 +32,11 @@
   }
 
   .cart-item__delete-btn {
-    background: url('../../assets/icons/delete_btn.svg') 50% 50% no-repeat;
+    color: var(--text-color);
+    cursor: pointer;
 
     &:hover {
-      opacity: 0.6;
+      opacity: 0.7;
     }
   }
 }

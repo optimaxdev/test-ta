@@ -31,7 +31,7 @@ export const CartPage: React.FC = () => {
   return (
     <Page title={'Shopping cart'}>
       {cart.isLoading ? (
-        <div data-testid={'loading'}>Loading...</div>
+        <div data-testid={'loading'} className="load">Loading...</div>
       ) : (
         <div className={'cart'} data-testid={'cart'}>
           <div className="cart__bar">

@@ -1,0 +1,66 @@
+
+
+.theme-switcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+    row-gap: 8px;
+    
+    .title {
+        color: var(--text-color);
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: row;
+        
+        // Instead of row-gap & column-gap
+        /*
+            margin-top: 8px;
+            &:first-child {
+                margin-right: 15px;
+            }
+        */
+        column-gap: 15px;
+    }
+    
+    &__light {
+        background: #002051;
+        color: #ffffff;
+        border: 1px solid #002051;
+        cursor: pointer;
+
+        &:hover {
+            background: #ffffff;
+            color: #002051;
+            border: 1px solid #002051;
+        }
+
+        &:disabled {
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            color: #666666;
+        }
+    }
+
+    &__dark {
+        background: #292929;
+        color: #ba8fc2;
+        border: 1px solid #ba8fc2;
+        cursor: pointer;
+
+        &:hover {
+            background: #ba8fc2;
+            color: #292929;
+            border: 1px solid #ba8fc2;
+        }
+
+        &:disabled {
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            color: #666666;
+            cursor: default;
+        }
+    }
+}

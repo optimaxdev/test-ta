@@ -19,6 +19,7 @@ export const Modal: React.FC<ModalP> = ({ close, children }) => {
       >
         <CloseIcon
           fontSize="large"
+          data-testid="close"
           className="modal__close-btn"
           onClick={close}
         />

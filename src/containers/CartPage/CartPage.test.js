@@ -99,7 +99,7 @@ describe('CartPage test', () => {
     expect(modal).toBeInTheDocument();
 
     //Close Modal by clicking on close btn
-    const closeBtn = queryByText('✕');
+    const closeBtn = queryByTestId('close');
     fireEvent.click(closeBtn);
     expect(modal).not.toBeInTheDocument();
 

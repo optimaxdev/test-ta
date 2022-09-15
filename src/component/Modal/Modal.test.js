@@ -5,10 +5,10 @@ describe('test modal close outside and not close inside', () => {
   const close = jest.fn();
 
   test('modal close outside', () => {
-    const { getByTestId, queryByText } = render(<Modal close={close}></Modal>);
+    const { getByTestId } = render(<Modal close={close}></Modal>);
     const modal = getByTestId('modal');
     const modalInside = getByTestId('modal-inside');
-    const closeBtn = queryByText('✕');
+    const closeBtn = getByTestId('close');
 
     //should be called
     fireEvent.click(closeBtn);

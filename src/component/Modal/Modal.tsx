@@ -1,5 +1,6 @@
 import './Modal.scss';
 import React from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 type ModalP = {
   close: () => void;
@@ -16,9 +17,12 @@ export const Modal: React.FC<ModalP> = ({ close, children }) => {
         }}
         data-testid={'modal-inside'}
       >
-        <button className="modal__close-btn btn btn_small" onClick={close}>
-          ✕
-        </button>
+        <CloseIcon
+          fontSize="large"
+          data-testid="close"
+          className="modal__close-btn"
+          onClick={close}
+        />
         {children}
       </div>
     </div>

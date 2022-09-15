@@ -1,3 +1,4 @@
+import { ToggleTheme } from 'component/ToggleTheme/ToggleTheme';
 import React from 'react';
 import './Page.scss';
 
@@ -11,9 +12,12 @@ export const Page: React.FC<PageT> = ({ title, children }) => {
     <div className={'page'}>
       <div className="page__inside">
         <header className="header">
+          <ToggleTheme />
           <h1 className="header__title">{title}</h1>
         </header>
+
         <main className={'main'}>{children}</main>
+
         <footer className="footer" />
       </div>
     </div>

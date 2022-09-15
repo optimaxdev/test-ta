@@ -1,4 +1,42 @@
-//colors
-$primary: #002051;
-$secondary: #ссс;
-$critic: #e5596d;
+:root {
+    --critic: #e5596d;
+}
+
+html[data-theme='dark'] {
+    --button-text-color: #ba8fc2;
+    --button-text-hover-color: #292929;
+    --button-background-color: #292929;
+    --button-background-hover-color: #ba8fc2;
+    --button-border-color: #ba8fc2;
+  
+    --input-text-color: #ffffff;
+    --input-placeholder-text-color: #dddddd;
+    --input-background-color: #7c7c7c;
+    --input-border-color: #ba8fc2;
+  
+    --background-color: #292929;
+    --footer-background-color: #ba8fc2;
+    --text-color: #ffffff;
+    --horisontal-rule-color: #dddddd;
+}
+  
+html[data-theme='light'] {
+    --button-text-color: #ffffff;
+    --button-text-hover-color: #002051;
+    --button-background-color: #002051;
+    --button-background-hover-color: #ffffff;
+    --button-border-color: #002051;
+
+    --button-action-text-color: #ffffff;
+    --button-action-background-color: #ccc;
+
+    --input-text-color: #000000;
+    --input-placeholder-text-color: #a7a7a7;
+    --input-background-color: #ffffff;
+    --input-border-color: #4e005c;
+
+    --background-color: #ffffff;
+    --footer-background-color: #002051;
+    --text-color: #000000;
+    --horisontal-rule-color: #ccc;
+}

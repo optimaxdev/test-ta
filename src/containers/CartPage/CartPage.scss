@@ -1,5 +1,15 @@
+.load {
+  color: var(--text-color);
+}
+
 .cart {
   &__bar {
     text-align: right;
+  }
+
+  &__list {
+    .subtitle {
+      color: var(--text-color);
+    }
   }
 }

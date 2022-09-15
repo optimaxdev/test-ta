@@ -54,7 +54,7 @@ export const CartPage: React.FC = () => {
                 />
               ))
             ) : (
-              <span>Cart is empty</span>
+              <span className='subtitle'>Cart is empty</span>
             )}
           </div>
           {cart.openAddForm && (

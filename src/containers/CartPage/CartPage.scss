@@ -6,4 +6,10 @@
   &__bar {
     text-align: right;
   }
+
+  &__list {
+    .subtitle {
+      color: var(--text-color);
+    }
+  }
 }

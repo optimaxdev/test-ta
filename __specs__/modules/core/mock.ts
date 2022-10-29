@@ -4,8 +4,8 @@ import { waitFor } from '@Utils/waitFor';
 import axios, { AxiosResponse } from 'axios';
 import { getLogger } from 'log4js';
 import { MockedRequest, MockedResponse, rest } from 'msw';
-import { ResponseComposition } from 'msw/lib/types/response';
-import { restContext } from 'msw/lib/types/rest';
+import type { ResponseComposition } from 'msw/lib/types/response';
+import type { restContext } from 'msw/lib/types/rest';
 import { setupServer } from 'msw/native';
 
 export class Mock {

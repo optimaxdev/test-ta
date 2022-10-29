@@ -8,16 +8,17 @@ type CartItemInfo = {
 };
 
 const SELECTORS = {
-    name: './/h2[contains(@class, "name")]',
-    fullPrice: './/div[contains(@class, "fullprice")]',
-    quantity: '[data-testid="quantity-current"]',
+    name: '//h2[@class="cart-item__name"]',
+    fullPrice: '//div[contains(@class, "fullprice")]',
+    quantity: '//div[@data-testid="quantity-current"]',
+    
 
-    priceForOne: './/div[contains(@class, "price-for-one")]',
+    priceForOne: '//div[contains(@class, "price")]',
 
-    addOneButton: './/button[text()="+"]',
-    removeOneButton: './/button[text()="-"]',
+    addOneButton: '//button[text()="+"]',
+    removeOneButton: '//button[text()="-"]',
 
-    deleteItemButton: '[data-testid="delete-btn"]',
+    deleteItemButton: '//button[@data-testid="delete-btn"]',
 };
 
 export class CartItem extends Component {
@@ -63,6 +64,6 @@ export class CartItem extends Component {
     }
 
     public async delete(): Promise<void> {
-        await this.element.clickByCSS(SELECTORS.deleteItemButton);
+        await this.element.clickByXpath(SELECTORS.deleteItemButton);
     }
 }

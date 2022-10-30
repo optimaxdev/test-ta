@@ -39,7 +39,7 @@ export const Form: React.FC<FormP> = ({ addItem }) => {
     if (String(value).trim().length === 0) return 'This field is required';
     switch (name) {
       case 'quantity':
-        if (value < 1) return 'This field should be greater or equal then 1';
+        if (value < 1 || value > 9) return 'This field should be greater or equal then 1 and less then 10';
         break;
       case 'price':
         if (value <= 0) return 'This field should be greater then 0';

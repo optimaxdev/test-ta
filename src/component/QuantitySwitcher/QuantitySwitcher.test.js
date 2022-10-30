@@ -32,4 +32,11 @@ describe('quantity switcher', () => {
     fireEvent.click(getByText('-'));
     expect(props.decrementQuantity).not.toBeCalled();
   });
+
+  it('plus btn should be disabled if current quantity equal 10', () => {
+    const { getByText } = render(<QuantitySwitcher {...props} quantity={10} />);
+    expect(getByText('+')).toBeDisabled();
+    fireEvent.click(getByText('+'));
+    expect(props.incrementQuantity).not.toBeCalled();
+  });
 });

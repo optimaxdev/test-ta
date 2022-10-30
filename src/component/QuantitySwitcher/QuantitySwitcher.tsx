@@ -32,6 +32,7 @@ export const QuantitySwitcher = ({
         type={'button'}
         className="quantity-switcher__btn btn btn_small"
         onClick={incrementQuantity}
+        disabled={quantity >= 10}
       >
         +
       </button>

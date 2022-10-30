@@ -96,7 +96,7 @@ describe('form test', () => {
       queryByText('This field should be greater then 0')
     ).toBeInTheDocument();
     expect(
-      queryByText('This field should be greater or equal then 1')
+      queryByText('This field should be greater or equal then 1 and less then 10')
     ).toBeInTheDocument();
 
     expect(props.addItem).toBeCalledTimes(0);
@@ -107,12 +107,51 @@ describe('form test', () => {
 
     //Shouldn't be error
     expect(
-      queryByText('This field should be greater or equal then 1')
+      queryByText('This field should be greater or equal then 1 and less then 10')
     ).not.toBeInTheDocument();
     expect(
       queryByText('This field should be greater then 0')
     ).not.toBeInTheDocument();
 
     expect(props.addItem).toBeCalledTimes(1);
+  });
+
+  it('test max value validation for price and quantity', () => {
+    const { getByTestId, getByText, queryByText } = render(<Form {...props} />);
+
+    const inputName = getByTestId('input-name');
+    const inputPrice = getByTestId('input-price');
+    const inputQuantity = getByTestId('input-quantity');
+
+    const button = getByText('Создать');
+
+    fireEvent.change(inputName, { target: { value: 'Name new item' } });
+    fireEvent.change(inputPrice, { target: { value: 0 } });
+    fireEvent.change(inputQuantity, { target: { value: 0 } });
+
+    fireEvent.click(button);
+
+    //Should be error min value
+    expect(
+      queryByText('This field should be greater then 0')
+    ).toBeInTheDocument();
+    expect(
+      queryByText('This field should be greater or equal then 1 and less then 10')
+    ).toBeInTheDocument();
+
+    expect(props.addItem).toBeCalledTimes(0);
+
+    fireEvent.change(inputPrice, { target: { value: 0.1 } });
+    fireEvent.change(inputQuantity, { target: { value: 10 } });
+    fireEvent.click(button);
+
+    //Shouldn't be error
+    expect(
+      queryByText('This field should be greater or equal then 1 and less then 10')
+    ).toBeInTheDocument();
+    expect(
+      queryByText('This field should be greater then 0')
+    ).not.toBeInTheDocument();
+
   });
 });

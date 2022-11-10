@@ -47,7 +47,7 @@ describe('Item Quantity', () => {
     });
 
     test("decreasing quantity to zero shouldn't be possible", async () => {
-        // Negative quantity test :)
+        // Write your own test - negative quantity :)
 
         reporter.startStep('Item quantity should be one');
         expect(await item.getQuantity()).toBe(1);

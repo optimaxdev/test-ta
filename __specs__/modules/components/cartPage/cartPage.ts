@@ -3,8 +3,6 @@ import { Container } from '@Core/container';
 
 const SELECTORS = {
     addCartItemButton: './/button[contains(text(), "Add Cart item")]',
-    addCartItemPopup: './/div[@class="modal" and contains(., "Add New Cart Item")]',
-
     cartList: './/div[@class="cart__list"]',
 };
 

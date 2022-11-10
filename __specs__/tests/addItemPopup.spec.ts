@@ -19,14 +19,12 @@ describe('Add Item Popup', () => {
         await cartPage.clickAddCartItemButton();
         reporter.endStep();
 
-        // example: const addItemPopup = await cartPage.getAddCartItemPopup();
-
         reporter.startStep('Fill all fields');
         // code
         reporter.endStep();
 
         reporter.startStep('Check error message on `0` as `quantity` value');
-        // example: expect(await addItemPopup.getErrorMessage()).toBe('This field should be greater or equal then 1')
+        // code
         reporter.endStep();
 
         reporter.startStep('Click "Создать"');
@@ -37,7 +35,10 @@ describe('Add Item Popup', () => {
         const [item] = await cartList.getCartItems();
 
         reporter.startStep('Created item should have the same fields as insert one');
-        expect(await item.getInfo()).toMatchObject(NEW_ITEM_DATA);
+        expect(await item.getInfo()).toMatchObject({
+            ...NEW_ITEM_DATA,
+            priceForAll: NEW_ITEM_DATA.quantity * NEW_ITEM_DATA.price,
+        });
         reporter.endStep();
     });
 });
